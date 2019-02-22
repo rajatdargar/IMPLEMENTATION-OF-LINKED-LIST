@@ -1,0 +1,56 @@
+//1.first declare a structure
+//2.create as many nodes as much you want
+//3.Lastly put address of next node in address column of current node
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int a,b,c;
+    struct node
+    {
+        int data;
+        node* link;  //declaring a structure pointer which will point to the same type of structures
+    };
+    
+    node *A; // declaring a header pointer which will point to first node in linked lists
+    A=NULL; //header is empty means linked lists is empty 
+    node *temp= new node(); // giving a pointer named 'temp' the address of starting address of new memory allocated 
+    temp->data=3;//entering integer data in first node
+    temp->link=NULL; // -> or '.' both are ways to store value in a structure type
+    A=temp;
+    
+    node *temp1=new node(); // creating a second node using a new pointer variable 'temp1'
+    temp1->data=4; //entering integer data in second node       
+    temp1->link=NULL; // -> or '.' both are ways to store value in a structure type
+    temp->link=temp1; // storing the address of next node in previos node's link column
+    
+    node *temp3=new node(); // creating a third node
+    temp3->data=5; //entering integer data in third node
+    temp3->link=NULL;
+    temp1->link=temp3;
+    
+    node *temp4=new node(); // creating a fourth node
+    temp4->data=6; //entering integer data in fourth node
+    temp4->link=NULL;
+    temp3->link=temp4;
+    
+    node *temp5=new node(); // creating a fifth node
+    temp5->data=7; //entering integer data in fifth node
+    temp5->link=NULL;
+    temp4->link=temp5;
+    
+    temp1=A;
+    cout<<temp1->data<<" ";
+    while(temp1->link!=NULL)
+    {
+        temp1=temp1->link;
+        cout<<temp1->data<<" ";
+    }
+    cout<<endl<<"LINKED LIST SUCCESSFULLY IMPLEMENTED";
+}
+
+
